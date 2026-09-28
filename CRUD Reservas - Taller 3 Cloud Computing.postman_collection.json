@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "8a86b343-ceea-4d69-845f-a70a876a5d8b",
+    "name": "CRUD Reservas - Taller 3 Cloud Computing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49441672",
+    "_collection_link": "https://go.postman.co/collection/49441672-8a86b343-ceea-4d69-845f-a70a876a5d8b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Crear reserva",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Andres Villota\",\r\n  \"fecha\": \"2026-10-08\",\r\n  \"cancha\": \"Cancha AWS\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://w531fh8s2f.execute-api.us-east-1.amazonaws.com/reservas",
+          "protocol": "https",
+          "host": [
+            "w531fh8s2f",
+            "execute-api",
+            "us-east-1",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "reservas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar reservas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://w531fh8s2f.execute-api.us-east-1.amazonaws.com/reservas",
+          "protocol": "https",
+          "host": [
+            "w531fh8s2f",
+            "execute-api",
+            "us-east-1",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "reservas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener reserva por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://w531fh8s2f.execute-api.us-east-1.amazonaws.com/reservas/f870b9a2-2aef-49bf-a7f6-c5d5a4904e14",
+          "protocol": "https",
+          "host": [
+            "w531fh8s2f",
+            "execute-api",
+            "us-east-1",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "reservas",
+            "f870b9a2-2aef-49bf-a7f6-c5d5a4904e14"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar reserva",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Andres Villota\",\r\n  \"fecha\": \"2026-10-10\",\r\n  \"cancha\": \"Cancha AWS Actualizada\",\r\n  \"estado\": \"activa\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://w531fh8s2f.execute-api.us-east-1.amazonaws.com/reservas/f870b9a2-2aef-49bf-a7f6-c5d5a4904e14",
+          "protocol": "https",
+          "host": [
+            "w531fh8s2f",
+            "execute-api",
+            "us-east-1",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "reservas",
+            "f870b9a2-2aef-49bf-a7f6-c5d5a4904e14"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar reserva",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://w531fh8s2f.execute-api.us-east-1.amazonaws.com/reservas/f870b9a2-2aef-49bf-a7f6-c5d5a4904e14",
+          "protocol": "https",
+          "host": [
+            "w531fh8s2f",
+            "execute-api",
+            "us-east-1",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "reservas",
+            "f870b9a2-2aef-49bf-a7f6-c5d5a4904e14"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
