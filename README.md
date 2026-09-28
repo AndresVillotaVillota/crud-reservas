@@ -237,7 +237,7 @@ Si alguno de estos campos no se proporciona, la API responde con código:
 Clonar el repositorio y acceder al proyecto:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/AndresVillotaVillota/crud-reservas.git
 cd crud-reservas
 ```
 
