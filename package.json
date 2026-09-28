@@ -1,0 +1,28 @@
+{
+  "name": "crud-reservas",
+  "version": "1.0.0",
+  "description": "API REST serverless para la gestion de reservas con AWS Lambda, API Gateway y DynamoDB.",
+  "scripts": {
+    "offline": "serverless offline",
+    "deploy": "serverless deploy",
+    "print": "serverless print"
+  },
+  "keywords": [
+    "serverless",
+    "aws",
+    "lambda",
+    "api-gateway",
+    "dynamodb",
+    "crud"
+  ],
+  "author": "Andres Villota",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1141.0",
+    "@aws-sdk/lib-dynamodb": "^3.1141.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^14.8.2"
+  }
+}

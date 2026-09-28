@@ -1,0 +1,79 @@
+org: andresvillotav
+service: crud-reservas
+
+provider:
+  name: aws
+  runtime: nodejs24.x
+  architecture: arm64
+  region: us-east-1
+
+  environment:
+    RESERVAS_TABLE: ${self:service}-${sls:stage}-reservas
+
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:PutItem
+            - dynamodb:GetItem
+            - dynamodb:Scan
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource:
+            - Fn::GetAtt:
+                - ReservasTable
+                - Arn
+
+functions:
+  crearReserva:
+    handler: src/crearReserva.handler
+    events:
+      - httpApi:
+          path: /reservas
+          method: post
+
+  listarReservas:
+    handler: src/listarReservas.handler
+    events:
+      - httpApi:
+          path: /reservas
+          method: get
+
+  obtenerReserva:
+    handler: src/obtenerReserva.handler
+    events:
+      - httpApi:
+          path: /reservas/{id}
+          method: get
+
+  actualizarReserva:
+    handler: src/actualizarReserva.handler
+    events:
+      - httpApi:
+          path: /reservas/{id}
+          method: put
+
+  eliminarReserva:
+    handler: src/eliminarReserva.handler
+    events:
+      - httpApi:
+          path: /reservas/{id}
+          method: delete
+
+resources:
+  Resources:
+    ReservasTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-${sls:stage}-reservas
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+
+plugins:
+  - serverless-offline
